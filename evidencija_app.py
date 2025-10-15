@@ -27,7 +27,7 @@ class EvidencijaApp:
         self.ucenici = []
         self.odabrani_ucenik_index = None
  
-        # ---- OKVIR ZA UNOS ----
+       
         self.unos_frame = tk.Frame(self.root, padx=10, pady=10)
         self.unos_frame.grid(row=0, column=0, sticky="NSEW")
  
@@ -46,14 +46,13 @@ class EvidencijaApp:
         self.razred_entry = tk.Entry(self.unos_frame)
         self.razred_entry.grid(row=2, column=1, sticky="EW", pady=5)
  
-        # Gumbi
+       
         self.dodaj_gumb = tk.Button(self.unos_frame, text="Dodaj učenika", command=self.dodaj_ucenika)
         self.dodaj_gumb.grid(row=3, column=1, sticky="E", pady=10)
  
         self.spremi_gumb = tk.Button(self.unos_frame, text="Spremi izmjene", command=self.spremi_izmjene)
         self.spremi_gumb.grid(row=4, column=1, sticky="E", pady=5)
  
-        # ---- OKVIR ZA PRIKAZ ----
         self.prikaz_frame = tk.Frame(self.root, padx=10, pady=10)
         self.prikaz_frame.grid(row=1, column=0, sticky="NSEW")
  
@@ -69,7 +68,6 @@ class EvidencijaApp:
  
         self.listbox.bind('<<ListboxSelect>>', self.odaberi_ucenika)
  
-        # ---- GUMBI ZA SPREMANJE I UČITAVANJE ----
         self.gumbi_frame = tk.Frame(self.root, pady=10)
         self.gumbi_frame.grid(row=2, column=0)
  
@@ -78,9 +76,7 @@ class EvidencijaApp:
         tk.Button(self.gumbi_frame, text="Spremi XML", command=self.spremi_u_xml).grid(row=0, column=2, padx=5)
         tk.Button(self.gumbi_frame, text="Učitaj XML", command=self.ucitaj_iz_xml).grid(row=0, column=3, padx=5)
  
-    # -------------------------------
-    # FUNKCIJE ZA RAD S UCENICIMA
-    # -------------------------------
+  
     def dodaj_ucenika(self):
         ime = self.ime_entry.get().strip()
         prezime = self.prezime_entry.get().strip()
@@ -130,9 +126,7 @@ class EvidencijaApp:
         self.prezime_entry.delete(0, tk.END)
         self.razred_entry.delete(0, tk.END)
  
-    # -------------------------------
-    # SPREMANJE / UČITAVANJE CSV
-    # -------------------------------
+   
     def spremi_u_csv(self):
         try:
             with open("ucenici.csv", mode='w', newline='', encoding='utf-8') as datoteka:
@@ -159,9 +153,7 @@ class EvidencijaApp:
         except Exception as e:
             messagebox.showerror("Greška", f"Dogodila se greška pri učitavanju: {e}")
  
-    # -------------------------------
-    # SPREMANJE / UČITAVANJE XML
-    # -------------------------------
+   
     def spremi_u_xml(self):
         try:
             root = ET.Element("evidencija")
@@ -208,3 +200,4 @@ if __name__ == "__main__":
     app = EvidencijaApp(root)
     root.mainloop()
  
+
