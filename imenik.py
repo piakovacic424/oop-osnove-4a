@@ -17,21 +17,21 @@ class ImenikApp:
         self.root.title("Jednostavni digitalni imenik")
         self.kontakti = []
 
-        # Omogući rastezanje glavnog prozora
+        
         self.root.columnconfigure(0, weight=1)
         self.root.rowconfigure(0, weight=1)
 
-        # Glavni frame
+        
         self.frame = tk.Frame(self.root, padx=10, pady=10)
         self.frame.grid(row=0, column=0, sticky="NSEW")
 
-        # Konfiguracija kolona i redova za rastezanje
+        
         self.frame.columnconfigure(0, weight=0)
         self.frame.columnconfigure(1, weight=1)
         self.frame.columnconfigure(2, weight=0)
-        self.frame.rowconfigure(4, weight=1)  # Listbox
+        self.frame.rowconfigure(4, weight=1)  
 
-        # Unos podataka
+        
         tk.Label(self.frame, text="Ime:").grid(row=0, column=0, sticky="W")
         self.ime_entry = tk.Entry(self.frame)
         self.ime_entry.grid(row=0, column=1, columnspan=2, sticky="EW")
@@ -44,29 +44,29 @@ class ImenikApp:
         self.telefon_entry = tk.Entry(self.frame)
         self.telefon_entry.grid(row=2, column=1, columnspan=2, sticky="EW")
 
-        # Gumb za dodavanje
+        
         self.dodaj_button = tk.Button(self.frame, text="Dodaj kontakt", command=self.dodaj_kontakt)
         self.dodaj_button.grid(row=3, column=0, columnspan=3, pady=10, sticky="EW")
 
-        # Listbox i Scrollbar
+        
         self.listbox = tk.Listbox(self.frame)
         self.scrollbar = tk.Scrollbar(self.frame, orient="vertical", command=self.listbox.yview)
         self.listbox.config(yscrollcommand=self.scrollbar.set)
         self.listbox.grid(row=4, column=0, columnspan=2, sticky="NSEW")
         self.scrollbar.grid(row=4, column=2, sticky="NS")
 
-        # Gumbi na dnu
+        
         self.spremi_button = tk.Button(self.frame, text="Spremi kontakte", command=self.spremi_kontakte)
         self.spremi_button.grid(row=5, column=0, pady=10, sticky="EW")
 
         self.ucitaj_button = tk.Button(self.frame, text="Učitaj kontakte", command=self.ucitaj_kontakte)
         self.ucitaj_button.grid(row=5, column=1, pady=10, sticky="EW")
 
-        # BONUS: Obriši kontakt
+        
         self.obrisi_button = tk.Button(self.frame, text="Obriši odabrani kontakt", command=self.obrisi_kontakt)
         self.obrisi_button.grid(row=6, column=0, columnspan=3, sticky="EW", pady=5)
 
-        # Automatski učitaj kontakte pri pokretanju
+        
         self.ucitaj_kontakte()
 
     def dodaj_kontakt(self):
@@ -79,7 +79,7 @@ class ImenikApp:
             self.kontakti.append(kontakt)
             self.osvjezi_listbox()
 
-            # Očisti polja
+            
             self.ime_entry.delete(0, tk.END)
             self.email_entry.delete(0, tk.END)
             self.telefon_entry.delete(0, tk.END)
@@ -122,9 +122,9 @@ class ImenikApp:
         else:
             messagebox.showwarning("Upozorenje", "Niste odabrali kontakt za brisanje!")
 
-# Pokretanje aplikacije
+
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("600x400")  # Početna veličina
+    root.geometry("600x400")  
     app = ImenikApp(root)
     root.mainloop()
