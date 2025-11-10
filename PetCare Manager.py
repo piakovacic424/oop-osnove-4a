@@ -353,8 +353,8 @@ class PetCareApp:
 
     def o_aplikaciji(self):
         messagebox.showinfo("O aplikaciji", 
-                            "🐾 PetCare Manager v1.2\n"
-                            "Autor: Tvoje Ime\n"
+                            "🐾 PetCare Manager v1.0\n"
+                            "Autor: Kovačić Pia\n"
                             "Aplikacija za evidenciju kućnih ljubimaca\n"
                             "© 2025")
 
@@ -365,3 +365,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = PetCareApp(root)
     root.mainloop()
+
