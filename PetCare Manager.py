@@ -42,7 +42,7 @@ class Ljubimac:
 class PetCareApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("🐾 PetCare Manager v1.3")
+        self.root.title("🐾 PetCare Manager v1.0")
         self.root.geometry("1000x700")
         self.root.configure(bg="#e6f0ff")  # svjetloplava pozadina
 
@@ -365,4 +365,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = PetCareApp(root)
     root.mainloop()
+
 
